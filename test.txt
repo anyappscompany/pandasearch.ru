@@ -1,0 +1,15 @@
+<?php
+
+echo get_web_page("https://api.vk.com/method/audio.search?q=rock&access_token=2979ed54cf57df704d755a299aab8fb8f2efc65bc2f33951623a485e4b9aacff49df08cffc7ae86692756&count=10");
+
+function get_web_page( $url )
+{
+  $ch = curl_init($url);
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+    curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, false );
+    curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
+    $response = curl_exec( $ch );
+    curl_close( $ch );
+    return $response;
+}
+?>
